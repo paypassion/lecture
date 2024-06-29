@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <h1>Travel</h1>
+  <ul>
+      <li><span class="home curr-click">Home</span></li>
+      <li><span class="seoul">Seoul</span></li>
+      <li><span class="tokyo">Tokyo</span></li>
+      <li><span class="paris">Paris</span></li>
+  </ul>
+  <img src="images/home.png" alt="Home" id="initImage">
+  <script>
+    function removeAllStrongTag() {
+      const spanTags = document.getElementsByTagName("span");
+      for (let i = 0; i < spanTags.length; i++) {
+        spanTags[i].classList.remove("curr-click");
+      }
+    }
+    const spanObjs = document.getElementsByTagName("span");
+    const initImage = document.getElementById("initImage");
+    for (const spanTag of spanObjs) {
+
+      spanTag.addEventListener("click", function () {
+        removeAllStrongTag();
+        spanTag.classList.add("curr-click");
+        initImage.src = `images/${spanTag.classList[0]}.png`;
+      });
+    }
+  </script>
+</body>
+
+</html>

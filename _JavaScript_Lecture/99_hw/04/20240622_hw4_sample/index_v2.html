@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="resources/css/style.css">
+</head>
+
+<body>
+  <div class="box-container">
+  </div>
+  <div class="btn-container">
+    <button type="button" id="oddBtn">홀수</button>
+    <button type="button" id="evenBtn">짝수</button>
+  </div>
+  <script>
+    const boxContainer = document.getElementsByClassName("box-container")[0];
+    const rNumSet = new Set();
+
+    function makeRandomSet(n) {
+      do {
+        rNumSet.add(Math.floor(Math.random() * 100) + 1);
+      } while (rNumSet.size < 32);
+    }
+    makeRandomSet(32);
+
+    rNumSet.forEach(function (v) {
+      boxContainer.innerHTML += `<div class="box">${v}</div>`;
+    });
+
+    const boxes = document.getElementsByClassName("box");
+    const boxCount = boxes.length;
+
+    function changeBackgroundColorOfBox(n) {
+      for (const box of boxes) {
+        let boxNum = parseInt(box.innerText);
+        if (boxNum % 2 == n) {
+          box.classList.add("oddOrEven");
+        }
+      }
+    }
+
+    Array.from(document.getElementsByTagName("button")).forEach(function (elem) {
+      elem.addEventListener("click", function (e) {
+        Array.from(document.getElementsByClassName("oddOrEven")).forEach(function (em) {
+          em.classList.remove("oddOrEven");
+        });
+        changeBackgroundColorOfBox(e.target.id == "oddBtn" ? 1 : 0);
+        e.target.classList.add("oddOrEven");
+      });
+    });
+  </script>
+</body>
+
+</html>

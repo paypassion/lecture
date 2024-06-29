@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body {
+      text-align: center;
+    }
+
+    h1 {
+      border: 5px solid black;
+      width: 12%;
+      height: 50px;
+      margin: 30px auto;
+    }
+
+    ul {
+      /* border: 1px dashed red; */
+      list-style: none;
+      width: 30%;
+      margin: 10px auto;
+    }
+
+    li {
+      display: inline;
+      margin: 0px 10px;
+    }
+
+    img {
+      margin-top: 30px;
+      width: 50%;
+    }
+
+    span:hover {
+      cursor: pointer;
+    }
+
+    .curr-click {
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <h1>Travel</h1>
+  <ul>
+      <li><span id="home" class="curr-click">Home</span></li>
+      <li><span id="seoul">Seoul</span></li>
+      <li><span id="tokyo">Tokyo</span></li>
+      <li><span id="paris">Paris</span></li>      
+  </ul>
+  <img src="images/home.png" alt="Home" id="initImage">
+  <script>
+    function removeAllStrongTag() {
+      const spanTags = document.getElementsByTagName("span");
+      for (let i = 0; i < spanTags.length; i++) {
+        spanTags[i].classList.remove("curr-click");
+      }
+    }
+    const initImage = document.getElementById("initImage");
+    document.getElementById("home").addEventListener("click", function () {
+      removeAllStrongTag();
+      const homeObj = document.getElementById("home");
+      homeObj.classList.add("curr-click");
+      initImage.src = "images/home.png";
+    });
+    document.getElementById("seoul").addEventListener("click", function () {
+      removeAllStrongTag();
+      const seoulObj = document.getElementById("seoul");
+      seoulObj.classList.add("curr-click");
+      initImage.src = "images/seoul.png";
+    });
+    document.getElementById("tokyo").addEventListener("click", function () {
+      removeAllStrongTag();
+      const tokyoObj = document.getElementById("tokyo");
+      tokyoObj.classList.add("curr-click");
+      initImage.src = "images/tokyo.png";
+    });
+    document.getElementById("paris").addEventListener("click", function () {
+      removeAllStrongTag();
+      const parisObj = document.getElementById("paris");
+      parisObj.classList.add("curr-click");
+      initImage.src = "images/paris.png";
+    });
+  </script>
+</body>
+
+</html>

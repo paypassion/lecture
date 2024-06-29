@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    button {
+      width: 200px;
+      height: 50px;
+      border: 0px;
+      margin: 10px;
+      font-size: x-large;
+      font-weight: bolder;
+    }
+    .box-container {
+      margin: auto;
+      padding: 10px;      
+      display: flex;
+      width: 100%;
+      height: 500px;            
+      flex-wrap:wrap;
+      align-content: space-between;
+    }
+    .box {      
+      border: 1px solid black;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100px;
+      height: 100px;
+      margin: 10px;
+      font-size: xx-large;
+      font-weight: bolder;      
+    }    
+    .btn-container {
+      padding: 10px;
+      width: 100%;
+      height: 50px;
+      text-align: center;      
+    }
+    .oddOrEven {
+      background-color: cornflowerblue;
+    }    
+  </style>
+</head>
+<body>
+  <div class="box-container">
+    <div class="box"></div><div class="box"></div><div class="box"></div><div class="box"></div>
+    <div class="box"></div><div class="box"></div><div class="box"></div><div class="box"></div>
+    <div class="box"></div><div class="box"></div><div class="box"></div><div class="box"></div>
+    <div class="box"></div><div class="box"></div><div class="box"></div><div class="box"></div>
+    <div class="box"></div><div class="box"></div><div class="box"></div><div class="box"></div>
+    <div class="box"></div><div class="box"></div><div class="box"></div><div class="box"></div>
+    <div class="box"></div><div class="box"></div><div class="box"></div><div class="box"></div>
+    <div class="box"></div><div class="box"></div><div class="box"></div><div class="box"></div>
+  </div>
+  <div class="btn-container">
+    <button type="button" id="oddBtn">홀수</button>
+    <button type="button" id="evenBtn">짝수</button>
+  </div>
+  <script>    
+    const boxes = document.getElementsByClassName("box");
+    const boxCount = boxes.length;
+    const oddBtn = document.getElementById("oddBtn");
+    const evenBtn = document.getElementById("evenBtn");
+    for (const box of boxes) {
+      box.innerHTML = Math.floor(Math.random() * 100) + 1;
+    }
+    function initBackgroundColors() {
+      for (const box of boxes) {
+        box.classList.remove("oddOrEven");
+      }
+      oddBtn.classList.remove("oddOrEven");
+      evenBtn.classList.remove("oddOrEven");
+    }
+    function changeBackgroundColorOfBox(n) {
+      for (const box of boxes) {
+        let boxNum = parseInt(box.innerText);
+        if (boxNum % 2 == n) {
+          box.classList.add("oddOrEven");
+        }
+      }
+    }
+
+    oddBtn.addEventListener("click", function (e) {
+      initBackgroundColors();
+      changeBackgroundColorOfBox(1);
+      e.target.classList.add("oddOrEven");
+    });
+    evenBtn.addEventListener("click", function (e) {
+      initBackgroundColors();
+      changeBackgroundColorOfBox(0);
+      e.target.classList.add("oddOrEven");
+    });
+  </script>
+</body>
+</html>

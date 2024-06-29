@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <select name="subjects" id="mySelect">
+        <option value="html">HTML5</option>
+        <option value="css">css3</option>
+        <option value="js">JavaScript ES6</option>
+        <option value="java">JAVA</option>
+        <option value="SQL">Structured Query Language</option>
+        <option value="spring">Spring (Boot) Framework </option>
+    </select>
+    <button type="button" id="btn">선택값 가져오기</button>
+    <script>
+        
+        document.getElementById("mySelect").addEventListener("input", function () {
+            const selectedValue = selectTag.options[selectTag.selectedIndex].value;
+            const selectedText = selectTag.options[selectTag.selectedIndex].text;
+            console.log(selectedValue, selectedText);
+ 
+        })
+
+        document.getElementById("btn").addEventListener("click", function () {
+            const selectTag = document.getElementById("mySelect")
+            const selectedValue = selectTag.options[selectTag.selectedIndex].value;
+            const selectedText = selectTag.options[selectTag.selectedIndex].text;
+            console.log(selectedValue, selectedText);
+        })
+
+    </script>   
+</body>
+</html>

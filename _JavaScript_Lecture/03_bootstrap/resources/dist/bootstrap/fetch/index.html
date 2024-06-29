@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <link rel="stylesheet" href="../css/mycustom.css">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/bootstrap.css">
+    <link rel="stylesheet" href="../">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="vendors/bootstrap-datepicker/bootstrap-datetimepicker.min.css">
+    <link rel="stylesheet" href="vendors/nice-select/css/nice-select.css">
+
+    <!-- main css -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+    <div id="wrapper">
+        <div id="101">101</div>
+        <div id="102">102</div>
+        <div id="103">103</div>
+        <div id="104">104</div>
+        <div id="105">105</div>
+    </div>
+    <div id="btnWrap">
+    <button type="button" id="ckIn">Check-in</button>
+    <button type="button" id="ckOut">Check-out</button>
+    </div>
+    <script>
+        let guestsData = []
+        const roomArr = [101, 102, 103, 104, 105]
+        
+        fetch('https://jsonplaceholder.typicode.com/users')
+                .then(response => response.json())
+                .then(data => {
+                    for (const i of data) {
+                        guestsData.push(i["name"])    
+                    }
+
+                    console.log(guestsData);
+                    document.getElementById("ckIn").addEventListener("click", function () {
+                        Swal.fire({
+                            title: "Check-in", 
+                            html: `
+                            <div style="display: flex; align-items: center; margin-bottom: 10px;">
+                                <label for="roomNumber" style="margin-right: 10px; width: 100px;">Room No: </label>
+                                <input type=select id="roomNumber" class=""swal2-input" placeholder="101~105" style="width: 200px; height: 30px; font-size:17px">
+                            </div>
+                            <div style="display: flex; align-items: center; margin-bottom: 10px;">
+                                <label for="guestName" style="margin-right: 10px; width: 100px;">Full Name: </label>
+                                <input type=text id="guestName" class=""swal2-input" style="width: 200px; height: 30px; font-size:17px">
+                            </div>`,
+                            showCancelButton: true,
+                            confirmButtonText: "확인",
+                            cancelButtonText: "취소",
+                            didOpen: () => {
+                                document.getElementById("roomNumber").focus();
+                            },
+                            preConfirm: () => {
+                                const roomNumber = document.getElementById('roomNumber').value
+                                const guestName = document.getElementById('guestName').value
+                                return { roomNumber: roomNumber, guestName: guestName};
+                            }
+                            }).then((result) => {
+                                if(result.isConfirmed) {
+                                    const { roomNumber, guestName} = result["value"]
+                                    const roomNum = parseInt(roomNumber)
+                                    
+                                    if (roomArr.includes(roomNum) && guestsData.includes(guestName)) {
+                                        document.getElementById(roomNum).innerHTML += ` <br> 투숙객: ${guestName}`
+                                        swal.fire({
+                                            text: `Welcome ${guestName}!`,
+                                            icon: "success"
+                                        })
+                                    }
+                                    
+                                
+                                    }else {
+                                        swal.fire({
+                                            html: `없는 방 번호입니다. <br> 101호 ~ 105호 중에서 선택해주세요.`,
+                                            icon: "warning"
+                                        })
+                                    }
+                        });
+                    });
+         
+
+                    document.getElementById("ckOut").addEventListener("click", function () {
+                        
+                        Swal.fire({
+                            title: "Check-out",
+                            // input: 'text',
+                            // inputLabel: '방번호: ' 
+                            html: `
+                            <div style="display: flex; align-items: center; margin-bottom: 10px;">
+                                <label for="roomNumber" style="margin-right: 10px; width: 100px;">객실 번호</label>
+                                <input type=text id="roomNumber" class=""swal2-input" placeholder="객실 번호를 입력하세요" style="width: 200px; height: 30px; font-size:17px">
+                            </div>`,
+                
+                            showCancelButton: true,
+                            confirmButtonText: "확인",
+                            cancelButtonText: "취소",
+                            preConfirm: () => {
+                                const roomNumber = document.getElementById('roomNumber').value
+                                console.log(roomNumber);
+                                return { roomNumber: roomNumber};
+                            }
+                        }).then((result) => {
+                            if (result.isConfirmed) {
+                                const {roomNumber} = result["value"]
+                                console.log(roomNumber);
+                                const roomNum = parseInt(roomNumber)
+                                if (roomArr.includes(roomNum)) {
+                                    document.getElementById(roomNum).innerHTML = roomNum
+                                    swal.fire("다음에 다시 만나요 :)")
+                                }
+                            }
+                        })  
+                             
+                    })
+
+                });        
+                // .then(data => guestsData.push(data))       
+        
+
+            
+               
+    </script>
+</body>
+</html>

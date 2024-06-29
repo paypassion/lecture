@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="resources/css/style.css">
+</head>
+
+<body>
+  <button type="button" id="printList">상품 출력</button>
+  <button type="button" id="resetList">초기화</button>
+  <ul id="productList"></ul>
+  <script>
+    const productList = [
+      {
+        image: "prd1",
+        title: "SuperNuts",
+        price: 12345,
+        deliveryFee: "무료",
+        stores: 123
+      },
+      {
+        image: "prd2",
+        title: "UltraNuts",
+        price: 22345,
+        deliveryFee: "3000",
+        stores: 1000
+      },
+      {
+        image: "prd3",
+        title: "ThankyouNuts",
+        price: 34533,
+        deliveryFee: "3500",
+        stores: 2000
+      },
+      {
+        image: "prd4",
+        title: "BadNuts",
+        price: 2345,
+        deliveryFee: "1000",
+        stores: 10
+      },
+      {
+        image: "prd5",
+        title: "AwesomeNuts",
+        price: 422345,
+        deliveryFee: "5000",
+        stores: 10000
+      },
+      {
+        image: "prd6",
+        title: "PowerNuts",
+        price: 52345,
+        deliveryFee: "무료",
+        stores: 100
+      },
+      {
+        image: "prd7",
+        title: "SpicyNuts",
+        price: 22885,
+        deliveryFee: "4000",
+        stores: 1678
+      },
+      {
+        image: "prd8",
+        title: "SaltyNuts",
+        price: 22632,
+        deliveryFee: "3000",
+        stores: 2000
+      },
+      {
+        image: "prd9",
+        title: "FreshNuts",
+        price: 67345,
+        deliveryFee: "무료",
+        stores: 632
+      },
+      {
+        image: "prd10",
+        title: "EdgeNuts",
+        price: 99999,
+        deliveryFee: "2500",
+        stores: 1
+      }
+    ]
+    let txt = "";
+    document.getElementById("printList").addEventListener("click", function () {      
+      document.getElementById("productList").innerHTML = "";
+      for (let i = 0; i < productList.length; i++) {
+        txt += `
+        <li class="row">
+          <div class="thumbnail">
+            <img src="resources/images/prd${i + 1}.jpg" alt="${productList[i].title}">
+          </div>
+          <div class="information">
+            <h3 class="title">${productList[i].title}</h3>
+            최저 <span class="price">${productList[i].price}</span>원
+            <span class="delivery-fee">${productList[i].deliveryFee}</span>
+            <p class="stores">
+              판매처 <span class="count">${productList[i].stores}</span>
+            </p>
+          </div>
+        </li>`;
+      }      
+      document.getElementById("productList").innerHTML = txt;
+      txt = "";
+    });
+    document.getElementById("resetList").addEventListener("click", function () {
+      document.getElementById("productList").innerHTML = "";
+    });
+  </script>
+</body>
+</html>

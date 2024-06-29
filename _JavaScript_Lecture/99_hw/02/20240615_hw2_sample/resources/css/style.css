@@ -1,0 +1,31 @@
+ul {
+  list-style: none;
+}
+li {
+  display: flex;
+  width: 640px;
+  margin: 10px 0 10px 0;
+}
+div {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+.thumbnail {  
+  width: 140px;
+  float: left;
+}
+img {
+  width: 95%;
+}
+.information {  
+  float: right;
+  width: 480px;
+  padding-left: 20px;
+}
+.price {
+  font-weight: bolder;
+}
+.delivery-fee, .stores {
+  color: blue;
+}

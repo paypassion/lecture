@@ -1,0 +1,15 @@
+#wrapper {
+    display: flex;
+}
+
+#wrapper div {
+    text-align: center;
+    border: 1px solid black;
+    padding: 10px;
+    margin-left: 10px;
+    margin-top: 2rem;
+}
+#btnWrap{
+    margin-left: 20%;
+    margin-top: 2rem;
+}

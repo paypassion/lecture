@@ -1,0 +1,23 @@
+.box {
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    border: 1px solid black;
+    text-align: center;
+    line-height: 50px;
+    background-color: lightgray;
+}
+
+.buttonWrapper {
+    display: flex;
+    justify-content: center;
+    margin-right: 30%;    
+}
+
+.oddBox {
+    background-color: blue;
+}
+
+.evenBox {
+    background-color: blue;
+}

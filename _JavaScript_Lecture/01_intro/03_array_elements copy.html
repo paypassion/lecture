@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul id="list1">
+        <li class="lists"></li>
+        <li class="lists"></li>
+        <li class="lists"></li>
+        <li class="lists"></li>
+        <li class="lists"></li>
+    </ul>
+    <ol id="list2">
+        <li class="lists"></li>
+        <li class="lists"></li>
+        <li class="lists"></li>
+        <li class="lists"></li>
+        <li class="lists"></li>
+    </ol>
+    <script>
+        let ul = document.getElementById("list1"); // element
+        let ol = document.querySelector("#list2"); // querySelector
+        console.log(ul);
+        console.log(ol);
+        // lists 변수에 10개의 list 가져오개
+        // getElementsClassName();
+        const lists = document.getElementsByClassName("lists");
+        const liTags = document.getElementsByTagName("li");
+        console.log(lists);
+        console.log(liTags);
+        const list_2 = lists[1];
+        console.log(list_2);
+
+        // querySelectorAll();
+        const list2 = document.querySelectorAll(".lists");
+        const liTags2 = document.querySelectorAll("li");
+        console.log("-----------------------------");
+        console.log(list2);
+        console.log(liTags2);
+        const list_4 = list2[3]
+        console.log("-----------------------------");
+        console.log(list_4);
+        // ul tag의 li tag 5개 가져오기?
+        const ul_list_c = ul.getElementsByClassName("lists");
+        const ul_lis1 = document.querySelectorAll("#list1 .lists"); //recommended
+        const ul_lis2 = document.querySelectorAll("ul>.lists"); // ul이 여러개 걸릴 수 있음
+        console.log(ul_list_c); 
+        console.log(ul_lis1);
+        console.log(ul_lis2);
+        
+        // ol tag의 li tag 5개 갸져오기?
+        const ol_list_c = ol.getElementsByClassName("lists")
+        const ol_lis1 = document.querySelectorAll("#list2 .lists"); // recommeded
+        const ol_lis2 = document.querySelectorAll("ol .lists"); // ol이 여러개 걸릴 수 있음
+
+        console.log(ol_list_c);
+        console.log(ol_lis1);
+        console.log(ol_lis2);
+
+        
+        // 단 현재 html 코드를 수정하지 말 것
+    </script>
+</body>
+</html>

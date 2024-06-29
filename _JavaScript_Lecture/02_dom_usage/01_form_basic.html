@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form>
+        <input type="text" name="" id="userName">
+        <input type="number" id="userAge">
+        <button type="button" id="getNameBtn" >정보 가져오기</button>
+    </form>
+    <script>
+        document.getElementById("getNameBtn").addEventListener("click", function () {
+            const userName = document.getElementById("userName");
+            const userNameValue = userName.value;
+            const userAge = document.getElementById("userAge");
+            const userAgeValue = userAge.value;
+            console.log(userNameValue);
+            console.log(typeof userNameValue);
+            console.log(userAgeValue);
+            console.log(typeof userAgeValue);
+            console.log(typeof Number(userAgeValue));
+        })
+    </script>
+</body>
+</html>

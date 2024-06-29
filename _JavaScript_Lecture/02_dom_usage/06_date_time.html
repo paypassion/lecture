@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <input type="date" name="" id="dt">
+    <button type="button" id="btnDt">불러오기</button><br>
+    <input type="time" name="" id="dtt">
+    <button type="button" id="btnDtt">불러오기</button><br>
+    <input type="datetime-local" name="" id="dttl">
+    <button type="button" id="btnDttl">불러오기</button>
+
+    <script>
+
+        document.getElementById("btnDt").addEventListener("click", function () {
+            console.log(document.getElementById("dt").value);
+        })
+
+        document.getElementById("btnDtt").addEventListener("click", function () {
+            console.log(document.getElementById("dtt").value);
+        })
+
+        document.getElementById("btnDttl").addEventListener("click", function () {
+            console.log(document.getElementById("dttl").value);
+        })
+
+        console.log(document.getElementById("dt").value);
+        console.log(document.getElementById("dtt").value);
+        console.log(document.getElementById("dttl").value);
+
+
+        console.log("------------------------------");
+        const now = new Date();
+        console.log(now);
+        const isoNow = now.toISOString();
+        console.log(isoNow);
+        console.log("------------------------------");
+        const year = now.getFullYear();
+        const month = now.getMonth();
+        const day = now.getDate();
+        const hour = now.getHours();
+        const min = now.getMinutes();
+        const sec = now.getSeconds();
+        console.log(`${year}-${month > 8 ? month+1 : "0"+(month+1)}-${day} ${hour}:${min}:${sec}`);
+        console.log(now.toLocaleString("ko-KR"));
+
+
+
+        </script>
+    
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul id="list1" class="list1">
+        <li class="lists"></li>
+        <li class="lists"></li>
+        <li class="lists"></li>
+        <li class="lists"></li>
+        <li class="lists"></li>
+    </ul>
+    <ol id="list2" class="list2">
+        <li class="lists"></li>
+        <li class="lists"></li>
+        <li class="lists"></li>
+        <li class="lists"></li>
+        <li class="lists"></li>
+    </ol>
+    <script>
+        let ul = document.getElementsByClassName("list1") // element
+        let ol = document.querySelectorAll(".list2"); // querySelector
+        
+        // // ul tag의 li tag 5개 가져오기
+        const ul_list_c = ul[0].querySelector(".lists");
+        console.log(ul_list_c);
+        
+        // ol tag의 li tag 5개 갸져오기?
+        const ol_list_c = ol[0].getElementsByClassName("lists")
+        console.log(ol_list_c);
+        
+
+    </script>
+</body>
+</html>

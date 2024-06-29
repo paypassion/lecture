@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul id="ulTag">
+        <li></li>
+    </ul>
+    <ol id="olTag">
+        <li></li>
+    </ol>
+    <button id="btnUl">텍스트 넣기ul</button>
+    <button id="btnOl">텍스트 넣기ol</button>
+    <script>
+        function addTextInLiTag(tagId) {
+            console.log("successful call");
+            document.getElementById(tagId).children[0].innerText = "Text Added"
+        }
+        const btnUl = document.getElementById("btnUl");
+        btnUl.addEventListener("click", function (e) {
+           addTextInLiTag("ulTag") 
+        });
+
+        const btnOl = document.getElementById("btnOl");
+        btnOl.addEventListener("click", function (e) {
+            addTextInLiTag("olTag")
+        })
+    </script>
+</body>
+</html>

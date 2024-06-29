@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./resource/css/style.css">
+    <title>Document</title>
+
+</head>
+<body>
+    <div id="container"></div>
+
+    <div class="buttonWrapper">
+        <button type="button" id="odd">홀수</button>
+        <button type="button" id="even">짝수</button>
+    </div>
+
+    <script>
+        
+        let numbers = [,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,]
+        Math.floor(Math.random()*100 +1)
+         for(i = 0; i < numbers.length; i++ ) {
+            numbers[i] = (Math.floor(Math.random()*100 +1));
+            document.getElementById("container").innerHTML += `<div class="box">${numbers[i]}</div>`
+            if(i % 8 == 7) {
+                document.getElementById("container").innerHTML += `<p></p>`
+            }
+        }
+        
+        document.getElementById("odd").addEventListener("click", function () {
+            let boxes = document.getElementsByClassName("box"); 
+            
+            for (i=0; i < boxes.length; i++) {
+                boxes[i].className = "box"
+                if (boxes[i].innerText % 2 == 1) {
+                    boxes[i].classList.add("oddBox")
+                }    
+            }
+        })
+
+        document.getElementById("even").addEventListener("click", function () {
+            let boxes = document.getElementsByClassName("box"); 
+            
+            for (i=0; i < boxes.length; i++) {
+                boxes[i].className = "box"
+                if (boxes[i].innerText % 2 == 0) {
+                    boxes[i].classList.add("evenBox")
+                }    
+            }
+        })
+
+    </script>
+    
+  
+</body>
+    
+</html>

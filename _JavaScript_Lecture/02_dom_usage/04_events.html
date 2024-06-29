@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul id="ul">
+        <li>
+            <a href="https://www.naver.com" class="portal Korean" id="naver">네이버</a>
+        </li>
+        <li>
+            <a href="https://www.google.com" class="portal" id="gg">구글</a>
+        </li>
+        <li>
+            <a href="https://www.daum.net" class="portal" id="daum">다음</a>
+        </li>
+    </ul>
+    <script>
+
+        const ulchildren = document.getElementById("ul").children
+        
+
+        for (let i = 0; i < ulchildren.length; i++) {
+            ulchildren[i].children[0].addEventListener("click", function (e) {
+                e.preventDefault();
+                if(i = 0) {
+                    console.log("Naver Clicked");
+                }
+                else if(i = 1) {
+                    console.log("Google Clicked");
+                }
+                else if(i = 2) {
+                    console.log("daum Clicked");
+                }   
+                console.log(e.target);
+                console.log(e.target.id);
+                console.log(e.target.classList);
+            })
+            
+        }
+
+        // 타겟은 각각 잡아오는데 왜 "Google Clicked"만 출력할까요?
+    </script>
+</body>
+</html>

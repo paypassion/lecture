@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>가위 바위 보 게임 만들기</h1>
+    <ol>
+        <li>입력  - 1:가위, 2:바위, 3:보 라고 가정함 </li>
+        <li>컴퓨터는 랜덤으로 1, 2, 3 중에 하나를 선택함</li>
+        <li>입력 후 결과 보기 버튼을 누르면 </li>
+        <li>컴퓨터와 가위바위보를 한 결과가 승, 무, 패의 형태로 출력되어야 함</li>
+    </ol>
+
+    <form>
+        <input type="number" id="userSelect" min="0" max="2">
+        <p id="com"></p>
+        <p id="resultBox"></p>
+        <button type="button" id="input">입력</button>
+        <button type="button" id="result">결과보기</button>
+    </form>
+
+    <script>
+        let resultValue
+        const result = document.getElementById("resultBox");
+
+        document.getElementById("input").addEventListener("click", function () {
+            const UserSelect = document.getElementById("userSelect")
+            
+            const UserValue = Number(UserSelect.value);
+            console.log(UserValue);
+            const comValue = Number(Math.floor(Math.random() * 3))
+           
+            document.getElementById("com").innerText = `컴퓨터: ${comValue}`
+            console.log(comValue);
+            resultValue = 0
+
+            if( UserValue == comValue) {
+                // return resultValue = "비김" 
+                console.log("비김");
+                resultValue = "비김"
+                console.log(resultValue);
+                
+            }
+            else if ( UserValue == 0 || comValue == 1) {
+                // return resultValue = "짐"
+                console.log("짐");
+                resultValue = "짐"
+                console.log(resultValue);
+            }
+            else if ( UserValue == 0 || comValue == 2) {
+                // return resultValue ="이김"
+                console.log("이김");
+                resultValue = "이김"
+                console.log(resultValue);
+            }
+            else if ( UserValue == 1 || comValue == 0) {
+                // return resultValue ="이김"
+                console.log("이김");
+                resultValue = "이김"
+                console.log(resultValue);
+            }
+            else if ( UserValue == 1 || comValue == 2) {
+                // return resultValue = "짐"
+                console.log("짐");
+                resultValue = "짐"
+                console.log(resultValue);
+            }
+            else if ( UserValue == 2 || comValue == 0) {
+                // return resultValue = "짐"
+                console.log("짐");
+                resultValue = "짐"
+                console.log(resultValue);
+            }
+            else if ( UserValue == 2 || comValue == 1) {
+                // return resultValue ="이김"
+                console.log("이김");
+                resultValue = "이김"
+                
+            }
+             
+           
+        })
+
+        document.getElementById("result").addEventListener("click", function () {
+            document.getElementById("resultBox").innerText = `님은 ${resultValue}`
+        })
+        
+    
+    </script>
+</body>
+</html>

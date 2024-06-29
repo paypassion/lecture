@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<img src="" alt="">
+<body>
+
+    <button id="btnOn">turn on</button>
+    <img id="bulbOn" src="01_intro/resources/images/pic_bulboff.gif">
+    <button id="btnOff">turn off</button>
+    <script>
+       let btnOn = document.querySelector("#btnOn")
+       let btnOff = document.querySelector("#btnOff")
+       
+       btnOn.addEventListener('click', function name(e) {
+        let bulbOn = document.querySelector("#bulbOn")
+        console.log(bulbOn);
+        bulbOn.src="01_intro/resources/images/pic_bulbon.gif"
+        console.log(bulbOn);
+        // 로그가 똑같이 찍히는 이유 - bulbon 즉, DOM이 객체기 때문에 객체에 접근해서 값을 바꾸면
+        // 어디서 로그를 찍든지 같은 주소를 참조하기 때문에 바꾼 값을 출력한다
+       })
+
+       btnOff.addEventListener('click', function name(e) {
+        let bulbOn = document.querySelector("#bulbOn")
+        bulbOn.src="01_intro/resources/images/pic_bulboff.gif"
+       })
+       
+       console.log(document);
+       
+    </script>
+</body>
+</html>

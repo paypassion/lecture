@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    #appearArea {
+      display: none;
+    }
+    #guessNum {      
+      width: 200px;
+      height: 25px;
+      font-size: larger;
+    }
+  </style>
+</head>
+<body>
+  <button type="button" id="startBtn">하이로우 게임 시작하기</button>
+  <h1 id="printResult"></h1>
+  <div id="appearArea">
+    <input type="number" min="1" max="100" id="guessNum">
+    <button type="button" id="tryBtn">시도하기</button>
+  </div>
+  <ol id="history"></ol>
+  <script>
+    const printResult = document.getElementById("printResult");
+    let comNum;
+    
+    function initGame() {
+      document.getElementById("history").innerHTML = "";
+      document.getElementById("appearArea").style.display = "none";
+      printResult.innerHTML = "";
+    }    
+    function makeRandomNumber() {
+      return Math.floor(Math.random() * 100) + 1;
+    }
+    function matchNumbers(tn, cn) {
+      if (tn == cn) {        
+        return `맞음 : 총 ${document.getElementById("history").children.length} 회 시도`;
+      } else {
+        let guessNum = document.getElementById("guessNum");
+        guessNum.value = "";
+        guessNum.focus();
+        return tn > cn ? "높음" : "낮음";
+      }
+    }    
+
+    document.getElementById("startBtn").addEventListener("click", function () {
+      if (document.getElementById("history").children.length)
+        initGame();
+
+      comNum = makeRandomNumber();
+      if (comNum) {
+        console.log(comNum);
+        printResult.innerText = "컴퓨터가 랜덤 숫자를 정하였습니다.";
+        appearArea.style.display = "inline";
+      }
+    });
+
+    document.getElementById("tryBtn").addEventListener("click", function () {
+      let tryNum = parseInt(document.getElementById("guessNum").value);
+      document.getElementById("history").innerHTML += `<li> 입력한 숫자 : ${tryNum}`;
+      let resultMatch = matchNumbers(tryNum, comNum);
+      printResult.innerText = resultMatch;
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/style.css"> 
+  <script src="https://kit.fontawesome.com/90f15be138.js" crossorigin="anonymous"></script>
+</head>
+<body>
+  
+  <nav>
+    <button id="showProductLists">상품출력버튼</button>
+    <button id="resetProductLists">초기화 버튼</button>
+  </nav>
+
+ 
+  <!-- 
+  <div class=wrapAll> 
+    
+    <section class="productSection">
+      <div class="imgWrapper">
+        <img class="img" src="./images/1.jpg">
+      </div>
+    
+      <div class="infoWrapper">
+        <h2 class="name">안다르 세트 1</h2>
+        <div class="deliveryWrapper">
+          <h6 class="price">10,000원</h6>
+          <i class="fas fa-light fa-truck-fast"></i>
+          <p class="deliveryPrice">1,000원</p>
+        </div>
+        <p class="shopCount">판매처: 1</p>
+      </div>  
+    </section>
+    
+  </div>  -->
+  
+
+
+   
+  
+  <script>
+    // Product info 
+     
+    let toRenderInfo = []
+
+    const productInfo = [
+      {
+      imgSrc : "./images/1.jpg",
+      name : "안다르 세트1",
+      price : "10,000원",
+      deliveryPrice : "1,000원", 
+      shopCount : "판매처 1",
+      },
+      {
+      imgSrc : "./images/2.jpg",
+      name : "안다르 세트2",
+      price : "20,000원",
+      deliveryPrice : "2,000원", 
+      shopCount : "판매처 2",
+      },
+      {
+      imgSrc : "./images/3.jpg",
+      name : "안다르 세트3",
+      price : "30,000원",
+      deliveryPrice : "3,000원", 
+      shopCount : "판매처 3",
+      },
+      {
+      imgSrc : "./images/4.jpg",
+      name : "안다르 세트4",
+      price : "40,000원",
+      deliveryPrice : "4,000원", 
+      shopCount : "판매처 4",
+      },
+      {
+      imgSrc : "./images/5.jpg",
+      name : "안다르 세트5",
+      price : "50,000원",
+      deliveryPrice : "5,000원", 
+      shopCount : "판매처 5",
+      },
+      {
+      imgSrc : "./images/6.jpg",
+      name : "안다르 세트6",
+      price : "60,000원",
+      deliveryPrice : "6,000원", 
+      shopCount : "판매처 6",
+      },
+      {
+      imgSrc : "./images/7.jpg",
+      name : "안다르 세트7",
+      price : "70,000원",
+      deliveryPrice : "7,000원", 
+      shopCount : "판매처 7",
+      },     
+      {
+      imgSrc : "./images/8.jpg",
+      name : "안다르 세트8",
+      price : "80,000원",
+      deliveryPrice : "8,000원", 
+      shopCount : "판매처 8",
+      },
+      {
+      imgSrc : "./images/9.jpg",
+      name : "안다르 세트9",
+      price : "90,000원",
+      deliveryPrice : "9,000원", 
+      shopCount : "판매처 9",
+      },
+      {
+      imgSrc : "./images/10.jpg",
+      name : "안다르 세트10",
+      price : "100,000원",
+      deliveryPrice : "10,000원", 
+      shopCount : "판매처 10",
+      },
+    ]
+
+  
+   
+  // Making product list
+  function makeProductList(params) {
+      
+    for(i =0; i < toRenderInfo.length; i++) {
+    
+    // layer1 
+    const getBodyTag = document.getElementsByTagName("body")
+    const createDivTag = document.createElement("div")
+    getBodyTag[0].appendChild(createDivTag)
+    createDivTag.className ="wrapAll"
+    const getWrapAllTag = document.getElementsByClassName("wrapAll");
+   
+    // layer 2  
+    const createSectionTag = document.createElement("section");
+    getWrapAllTag[0].appendChild(createSectionTag);
+    createSectionTag.className = "productSection";
+    
+    // layer 3
+    const createDivImgWrapTag = document.createElement("div");
+    const createIDivnfoWrapTag = document.createElement("div")
+    createSectionTag.append(createDivImgWrapTag, createIDivnfoWrapTag);
+    createDivImgWrapTag.className = "imgWrapper";
+    createIDivnfoWrapTag.className = "infoWrapper";
+    
+    // layer 4 - imgWrapper
+    const createImgTag = document.createElement("img");
+    createDivImgWrapTag.appendChild(createImgTag);
+    createImgTag.className = "img"
+    createImgTag.src = toRenderInfo[i].imgSrc
+
+    // layer 4 - infoWrapper 
+    const createH2NameTag = document.createElement("h2");
+    const createDivDeliveryWrapperTag = document.createElement("div");
+    const createPShopCountTag = document.createElement("shop");
+
+    createIDivnfoWrapTag.append(createH2NameTag, createDivDeliveryWrapperTag, createPShopCountTag);  
+    
+    createH2NameTag.className = "name";
+    createDivDeliveryWrapperTag.className = "deliveryWrapper";
+    createPShopCountTag.className = "deliveryPrice";
+
+    createH2NameTag.innerText = toRenderInfo[i].name;
+
+    createPShopCountTag.innerText = toRenderInfo[i].shopCount;
+
+    // layer 5 
+
+    const createH6PriceTag = document.createElement("h6");
+    const createITag = document.createElement("I");
+    const createPDeliveryPriceTag = document.createElement("p");
+
+    createDivDeliveryWrapperTag.append(createH6PriceTag, createITag, createPDeliveryPriceTag)
+
+    console.log(getWrapAllTag);
+    
+    createH6PriceTag.className = "price" 
+    createITag.className = "fas fa-light fa-truck-fast" 
+    createPDeliveryPriceTag.className = "deliveryPrice" 
+
+    createH6PriceTag.innerText = toRenderInfo[i].price
+    createPDeliveryPriceTag.innerText = toRenderInfo[i].deliveryPrice
+   }  
+  }
+// buttons
+
+const getShowProductListsBtn = document.getElementById("showProductLists")
+const getResetProductListsBtn = document.getElementById("resetProductLists")
+
+
+// 왜 바로담으면 안되고 element를 통해 담아야 되지?
+
+
+  console.log(toRenderInfo);
+  
+ 
+
+getShowProductListsBtn.addEventListener("click", function () {
+  const getWrapAllTag = document.getElementsByClassName("wrapAll")
+  for (let i = 0; i < getWrapAllTag.length; i++) {
+    const element = getWrapAllTag[i];
+    element[i].remove();
+  }
+  for (let i = 0; i < productInfo.length; i++) {
+    const element = productInfo[i];
+    toRenderInfo.push(element);
+  }
+  makeProductList(); 
+})
+
+getResetProductListsBtn.addEventListener("click", function () {
+  const getWrapAllTag = document.getElementsByClassName("wrapAll")
+  for (let i = 0; i < getWrapAllTag.length; i++) {
+    const element = getWrapAllTag[i];
+    element[i].remove();
+  }
+
+ })
+  
+
+
+  </script>
+
+  
+</body>
+</html>

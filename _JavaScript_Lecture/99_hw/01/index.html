@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/style.css">
+    
+    <title>Trave: Where do you want to go?</title>
+</head>
+<body>
+    
+  <h1 class="title">Travel</h1>
+  
+  <div class="nationBtnWrapper">
+    <button id="home" class="nationBtn">Home</button>
+    <button id="seoul" class="nationBtn">Seoul</button>
+    <button id="paris" class="nationBtn">Paris</button>
+    <button id="tokyo" class="nationBtn">Tokyo</button>
+    <button id="firenze" class="nationBtn">firenze</button>
+  </div>  
+   
+  <img id="bgImg" src="./images/home.png" alt=""> 
+
+  <script>
+    
+    // Elements
+    const homeBtn = document.getElementById("home")
+    const seoulBtn = document.getElementById("seoul")
+    const parisBtn = document.getElementById("paris")
+    const tokyoBtn = document.getElementById("tokyo")
+    const firenzeBtn = document.getElementById("firenze")
+    const allBtns = document.getElementsByClassName("nationBtn")
+    const bgImg = document.getElementById("bgImg")
+    
+    // functions
+    function makeAllfontWeightNomal() {
+      for (let i = 0; i < allBtns.length; i++) {
+        allBtns[i].style.fontWeight = "normal";
+      }
+    }
+    
+    function ChangeBgImg(imgName) {
+      bgImg.src = `./images/${imgName}.png`
+    }
+
+    function makeFontBold(btn) {
+      btn.style.fontWeight = "bold";
+    }
+        
+    homeBtn.addEventListener("click", function () {
+      ChangeBgImg("home");
+      makeAllfontWeightNomal();
+      makeFontBold(homeBtn);
+    })
+    
+    seoulBtn.addEventListener("click", function () {
+      ChangeBgImg("seoul");
+      makeAllfontWeightNomal();
+      makeFontBold(seoulBtn);
+    })
+
+    parisBtn.addEventListener("click", function () {
+      ChangeBgImg("paris");
+      makeAllfontWeightNomal();
+      makeFontBold(parisBtn);
+    })
+
+    tokyoBtn.addEventListener("click", function () {
+      ChangeBgImg("tokyo");
+      makeAllfontWeightNomal();
+      makeFontBold(tokyoBtn);
+    })
+
+    firenzeBtn.addEventListener("click", function () {
+      ChangeBgImg("firenze");
+      makeAllfontWeightNomal();
+      makeFontBold(firenzeBtn);
+    })
+  
+    
+  </script>
+</body>
+
+</html>

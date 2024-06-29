@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>High-Low Game</title>
+</head>
+<body>
+    <h1>하이로우 게임</h1>
+    <input type="text" id="input">
+    <button type="button" id="inputButton">입력</button>
+    <p id="result"></p>
+    <p id="count"></p>
+    <button type="button" id="refreshButton">다시 하기</button>
+    <script>
+        let comValue = Math.floor(Math.random()*100 + 1);
+        let count = 0
+
+        document.getElementById("inputButton").addEventListener("click", function () {
+            const input = document.getElementById("input")
+            let userValue = Number(input.value);
+            count++
+            document.getElementById("count").innerText = `시도회수: 총${count}회`
+
+            if (userValue > comValue) {
+              document.getElementById("result").innerHTML += `결과: 높음 <br>`
+            }
+            else if (userValue < comValue) {
+              document.getElementById("result").innerHTML += `결과: 낮음 <br>`
+            }
+            else if (userValue === comValue) {
+              document.getElementById("result").innerHTML += `결과: 정답! <br>`
+            }
+            
+            
+            console.log(comValue);
+            console.log(userValue);
+        })
+
+        document.getElementById("refreshButton").addEventListener("click", function () {
+            document.getElementById("result").innerHTML = ""
+            document.getElementById("count").innerHTML = ""
+            comValue = Math.floor(Math.random()*100 + 1);
+            count = 0
+            console.log(comValue);
+        })
+
+    </script>    
+</body>
+</html>
